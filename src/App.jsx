@@ -1,7 +1,13 @@
+import HomePage from "./pages/HomePage"
+
 function App() {
   return (
     <>
-      <p>Hello World</p>
+      <img id="img-backdrop" src='images/backdrop.png'/>
+      <main>
+        <HomePage/>
+      </main>
+      <img id="rabbit-snow" src="images/rabbit-snow.png"/>
     </>
   )
 }
