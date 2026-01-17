@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brown: #966767;
+  --font-family-edu-sa-beginner: "Edu SA Beginner", cursive;
+  --font-family-shadows-into-light-two: "Shadows Into Light Two", cursive;
+  --font-family-combo: "Combo", system-ui;
+}
+
+.return-btn{
+    @apply ml-auto mr-[8%];
+    z-index: 20;
+}
+/*Expense Date Selector*/
+.month-amount{
+    @apply text-3xl sm:text-4xl md:text-5xl text-brown font-family-combo tracking-wider mt-1 sm:mt-3 mb-2 sm:mb-4;
+}
+.month-amount .words{
+    @apply text-xl sm:text-2xl text-brown font-family-combo tracking-wider mt-1 sm:mt-3 mb-2 sm:mb-4;
+}
+.month-selector {
+    @apply flex gap-2 items-center w-[50%] sm:w-[70%] mb-2;
+}
+.btn-dropdown {
+    @apply flex-1 py-1 sm:py-1.5 rounded-full text-brown font-family-edu-sa-beginner text-lg sm:text-xl;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 3px solid rgba(242, 214, 221, 0.4);
+    box-shadow: 0 8px 16px rgba(90, 53, 53, 0.089);
+    cursor: pointer;
+}
+.dropdown-menu{
+    position: fixed; 
+    width: auto;
+    margin-top: 8px; 
+    z-index: 100;
+    max-height: 250px;
+    overflow-y: auto; 
+}
+.dropdown-item{
+    @apply text-brown text-lg sm:text-xl font-family-shadows-into-light-two p-1;
+    cursor: pointer;
+}
+.search-btn{
+    @apply text-brown;
+}
+
+/*Expenses History*/
+#expenses-history{
+    @apply h-[550px] overflow-auto;
+}
+#data-group{
+    @apply flex flex-col gap-1;
+}
+.date-header{
+    @apply mt-3
+}
+.expense-card{
+    @apply w-full rounded-2xl sm:rounded-3xl p-3 sm:p-6 overflow-hidden;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(242, 214, 221, 0.4);    
+}
+.expense-data{
+    @apply w-full flex flex-row gap-1 items-center;
+}
+.expense-data img{
+    @apply w-auto h-10 sm:h-12;
+}
+.info-group{
+    @apply flex flex-col ml-3;
+}
+.description-text{
+    @apply text-lg sm:text-xl text-[#A87878] font-medium font-family-edu-sa-beginner;
+}
+.category-text{
+    @apply text-base text-[#D4A5A5] font-family-combo;
+}
+.amount-group{
+    @apply ml-auto;
+}
+.amount-text{
+    @apply text-brown text-xl sm:text-3xl;
+}

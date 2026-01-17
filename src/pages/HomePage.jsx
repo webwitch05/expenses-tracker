@@ -2,12 +2,16 @@ import CategoryBreakdown from "../components/features/CategoryBreakdown"
 import AddExpenses from "../components/layout/AddExpenses"
 import MonthSpending from "../components/layout/MonthSpending"
 
+import '../styles/HomePage.css';
+import { Link } from 'react-router-dom';
+
 const HomePage= ()=>{
     return(
         <>
             <div className="page-container">
 
                 <div>
+                    <img id="rabbit-swing" src='images/rabbit-swing.png'/>
                     <div className="header">
                         <img className="header-icon" src='images/icon-chicken.png'/> 
                         Hello WebWitch
@@ -39,12 +43,13 @@ const HomePage= ()=>{
 
                     <div id="breakdown-btn">
                         <CategoryBreakdown/>
-                        <button className="view-all-btn">
+                        <Link to="/ExpensesPage" className="view-all-btn">
                             View all expenses ›
-                        </button>
+                        </Link>
                     </div>
                 </div>    
             </div>
+            <img id="rabbit-snow" src='images/rabbit-snow.png'/>
         </>
     )
 }

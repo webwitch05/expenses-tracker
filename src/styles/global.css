@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+html, body {
+  height: 100%;
+}
+
+@theme {
+  --color-brown: #966767;
+  --font-family-edu-sa-beginner: "Edu SA Beginner", cursive;
+  --font-family-shadows-into-light-two: "Shadows Into Light Two", cursive;
+  --font-family-combo: "Combo", system-ui;
+}
+
+@utility flex-center{
+  @apply flex justify-center items-center;
+}
+
+@layer components{
+  main{
+    @apply relative flex flex-center;
+    min-height: 100vh;
+  }
+  
+  #img-backdrop{
+    @apply w-screen h-screen object-cover fixed top-0 left-0 -z-50;
+  }
+  
+  .page-container{
+    @apply relative w-[95%] sm:w-[90%] mx-auto my-2 sm:my-10 p-4 sm:p-6 space-y-4 sm:space-y-6 rounded-3xl;
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(242, 214, 221, 0.4);
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.089);
+    max-height: 98vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .card-backdrop {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/backdrop.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
+  }
+  
+  .glass-card{
+    @apply relative w-full rounded-2xl sm:rounded-3xl p-3 sm:p-6 overflow-hidden;
+    background-color: rgba(242, 214, 221, 0.01);
+    border-top: 2px solid rgba(255, 255, 255, 0.4);
+    border-left: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 5px 15px rgba(0, 0, 0, 0.1),
+      0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .frosted-card {
+    @apply relative w-full rounded-2xl sm:rounded-3xl mt-1.5 mb-2.5 sm:mt-3 sm:mb-5 p-4 sm:p-5 overflow-hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 3px solid rgba(242, 214, 221, 0.4);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.089);
+  }
+
+  .frosted-card::before {
+    @apply rounded-2xl sm:rounded-3xl;
+    content: '';
+    pointer-events: none; 
+    position: absolute;
+    inset: 3px; 
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  
+  .header{
+    @apply flex gap-1 items-center text-xl sm:text-2xl md:text-3xl text-brown font-family-edu-sa-beginner font-medium tracking-wider
+  }
+  
+  .header-icon{
+    @apply h-[1.5em] w-auto
+  }
+  
+  .sub-header{
+    @apply text-sm sm:text-base text-brown font-family-edu-sa-beginner font-light mt-1 sm:mt-2 pl-3 tracking-widest
+  }
+  
+  .title{
+    @apply flex items-center text-lg sm:text-xl md:text-2xl text-brown font-family-edu-sa-beginner tracking-wider 
+  }
+
+  /* Images */
+  #rabbit-swing {
+    position: absolute; 
+    top: 0; 
+    right: -1%;
+    width: 160px;
+    height: auto;
+    z-index: 10;
+  }
+  
+  #rabbit-snow {
+    position: fixed;
+    left: 0.5%;
+    bottom: 15px;
+    width: 180px;
+    height: auto;
+    z-index: 10;
+    opacity: 0.95;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  }  
+
+  @media (min-width: 640px) {
+    #rabbit-swing {
+      position: absolute; 
+      top: 0; 
+      right: -1%;
+      width: 350px;
+      height: auto;
+      z-index: 10;
+    }        
+    #rabbit-snow {
+      position: relative;
+      width: 280px;
+      bottom: 400px;
+    }   
+  }
+}

@@ -1,15 +1,7 @@
 import { useState, useRef } from "react";
+import { categories } from '../../../public/constants';
 
-const AddExpenses= ()=>{
-
-    const categories= [
-        { name: "Clothes", image: "/images/category-clothes2.png" },
-        { name: "Food", image: "/images/category-food2.png" },
-        { name: "Transport", image: "/images/category-transport2.png" },
-        { name: "Necessity", image: "/images/category-necessity2.png" },
-        { name: "Others", image: "/images/category-others2.png" },           
-    ] 
-    
+const AddExpenses= ()=>{    
     const [selectedCategory, setSelectedCategory] = useState(null);
     const scrollRef = useRef(null);
 
@@ -25,16 +17,19 @@ const AddExpenses= ()=>{
 
                     <div className="categories-wrapper">
                         <div className="categories-grid" ref={scrollRef}>
-                            {categories.map((cat, index) => (
-                                <div 
-                                    key={index}
-                                    className={`category-item ${selectedCategory === cat.name ? 'selected' : ''}`}
-                                    onClick={()=>setSelectedCategory(cat.name)}
-                                >
-                                    <img src={cat.image} alt={cat.name} />
-                                    <p>{cat.name}</p>
-                                </div>
-                            ))}
+                            {categories.map((cat, index) => {
+                                const catIcon= cat.image
+                                return(
+                                    <div 
+                                        key={index}
+                                        className={`category-item ${selectedCategory === cat.name ? 'selected' : ''}`}
+                                        onClick={()=>setSelectedCategory(cat.name)}
+                                    >
+                                        <img src={catIcon} alt={cat.name} />
+                                        <p>{cat.name}</p>
+                                    </div>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>
