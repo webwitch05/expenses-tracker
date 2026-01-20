@@ -54,7 +54,11 @@
 }
 
 #add-expenses input{
-  @apply w-full h-4 px-2 py-3 sm:py-4 rounded-lg bg-white/50 border border-white/30 text-black/50 font-family-shadows-into-light-two text-sm sm:text-base
+  @apply w-full h-4 px-2 py-3 sm:py-4 rounded-lg bg-white/50 border border-white/30 text-[#D4A5A5] tracking-widest font-family-shadows-into-light-two text-sm sm:text-base;
+}
+
+#add-expenses input::placeholder{
+  @apply text-[#757575] tracking-wider font-family-shadows-into-light-two text-sm sm:text-base;
 }
 
 .categories-wrapper {

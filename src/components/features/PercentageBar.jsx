@@ -1,8 +1,8 @@
-function PercentageBar() {
+function PercentageBar({width}) {
   return (
     <> 
         <div id="percentage-bar">
-            <div id="percentage" style={{width: "80%"}}>
+            <div id="percentage" style={{width: `${width}%`}}>
                 <img src="images/cherryblossom-bg2.png"/>
             </div>
         </div>

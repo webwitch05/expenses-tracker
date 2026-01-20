@@ -1,22 +1,19 @@
-import { useMemo } from 'react';
-import { expensesData, categories } from "../../../public/constants";
+import { RxCross1 } from "react-icons/rx";
+import { categories } from "../../../public/constants";
+import { useExpensesContext } from "../../contexts/ExpensesContext";
+import { deleteExpenses } from '../../services/expensesService';
 
 const ExpensesHistory= ()=>{
-    const sortedExpenses = useMemo(() => {
-        return [...expensesData].sort((a, b) => {
-            const [dayA, monthA] = a.date.split('/');
-            const [dayB, monthB] = b.date.split('/');
-            
-            if (monthA !== monthB) {
-            return parseInt(monthB) - parseInt(monthA);
-            }
-            return parseInt(dayB) - parseInt(dayA);
-        });
-    }, [expensesData]);   
+    const { expensesData, refetchExpenses } = useExpensesContext(); 
+
+    const handleDelete= async (expense)=>{
+        await deleteExpenses(expense); // Wait for delete to complete
+        refetchExpenses();
+    }
 
     return(
         <>
-            {sortedExpenses.map((expense, index) => {
+            {expensesData.map((expense, index) => {
                 const catIcon = categories.find((cat) => cat.name === expense.category);
                 
                 return (
@@ -27,6 +24,10 @@ const ExpensesHistory= ()=>{
                         )}
                         
                         <div className="expense-card">
+                            <RxCross1 
+                                className="delete-btn" 
+                                onClick={() => handleDelete(expense)}
+                            />
                             <div className="expense-data">
                                 <img src={catIcon?.image} alt={expense.category}/>
                                 <div className="info-group">
@@ -34,7 +35,7 @@ const ExpensesHistory= ()=>{
                                     <p className="category-text">{expense.category}</p>
                                 </div>
                                 <div className="amount-group">
-                                    <p className="amount-text">{expense.amount}</p>
+                                    <p className="amount-text">${expense.amount}</p>
                                 </div>
                             </div>
                         </div>
