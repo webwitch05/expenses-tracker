@@ -14,75 +14,112 @@
 
 /*Expense Date Selector*/
 .month-amount{
-    @apply text-3xl sm:text-4xl md:text-5xl text-brown font-family-combo tracking-wider mt-1 sm:mt-3 mb-2 sm:mb-4;
+    @apply text-3xl sm:text-4xl md:text-5xl text-brown font-family-combo tracking-wider;
+    margin-top: 2%;
+    margin-bottom: 3%;
 }
+
 .month-amount .words{
-    @apply text-xl sm:text-2xl text-brown font-family-combo tracking-wider mt-1 sm:mt-3 mb-2 sm:mb-4;
+    @apply text-lg text-brown font-family-combo tracking-wider;
+    margin-top: 2%;
+    margin-bottom: 3%;
 }
+
 .month-selector {
-    @apply flex gap-2 items-center w-[50%] sm:w-[70%] mb-2;
+    @apply flex items-center;
+    gap: clamp(0.5rem, 2vw, 0.75rem);
+    width: clamp(50%, 15vw, 70%);
+    margin-bottom: 3%;
 }
+
 .btn-dropdown {
-    @apply flex-1 py-1 sm:py-1.5 rounded-full text-brown font-family-edu-sa-beginner text-lg sm:text-xl;
+    @apply flex-1 rounded-full text-brown font-family-edu-sa-beginner cursor-pointer;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: clamp(1.125rem, 4.5vw, 1.25rem);
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
     border: 3px solid rgba(242, 214, 221, 0.4);
     box-shadow: 0 8px 16px rgba(90, 53, 53, 0.089);
-    cursor: pointer;
 }
+
 .dropdown-menu{
     position: fixed; 
     width: auto;
-    margin-top: 8px; 
+    margin-top: 2%; 
     z-index: 100;
-    max-height: 250px;
+    max-height: clamp(200px, 50vw, 250px);
     overflow-y: auto; 
 }
+
 .dropdown-item{
-    @apply text-brown text-lg sm:text-xl font-family-shadows-into-light-two p-1;
-    cursor: pointer;
+    @apply text-lg sm:text-xl text-brown font-family-shadows-into-light-two cursor-pointer;
+    padding: 2%;
 }
+
 .search-btn{
     @apply text-brown;
 }
 
 /*Expenses History*/
 .delete-btn{
-    @apply absolute top-2 right-3 text-[#8B7D7B] text-xs sm:text-sm;
-    cursor: pointer;
+    @apply absolute text-[#8B7D7B] cursor-pointer;
+    top: 8%;
+    right: 4%;
+    font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
+
 #expenses-history{
-    @apply h-[550px] overflow-auto;
+    overflow: auto;
+    max-height: calc(100% - 250px);
 }
+
 #data-group{
-    @apply flex flex-col gap-1;
+    @apply flex flex-col;
+    gap: clamp(0.25rem, 1vw, 0.5rem);
 }
+
 .date-header{
-    @apply mt-3
+    margin-top: 4%;
 }
+
 .expense-card{
-    @apply relative w-full rounded-2xl sm:rounded-3xl p-3 sm:p-6 overflow-hidden;
+    @apply relative w-full rounded-2xl overflow-hidden;
+    padding: 3%;
     background-color: rgba(255, 255, 255, 0.3);
     border: 3px solid rgba(242, 214, 221, 0.4);    
 }
+
 .expense-data{
-    @apply w-full flex flex-row gap-1 items-center;
+    @apply w-full flex flex-row items-center;
+    gap: clamp(0.25rem, 1vw, 0.5rem);
 }
+
 .expense-data img{
-    @apply w-auto h-10 sm:h-12;
+    @apply w-auto;
+    height: clamp(2rem, 8vw, 3rem);
 }
+
 .info-group{
-    @apply flex flex-col ml-3;
+    @apply flex flex-col;
+    margin-left: 3%;
 }
+
 .description-text{
-    @apply text-lg sm:text-xl text-[#A87878] font-medium font-family-edu-sa-beginner;
+    @apply text-[#A87878] font-medium font-family-edu-sa-beginner;
+    font-size: clamp(1.125rem, 4.5vw, 1.25rem);
 }
+
 .category-text{
-    @apply text-base text-[#D4A5A5] font-family-combo;
+    @apply text-[#D4A5A5] font-family-combo;
+    font-size: clamp(1rem, 4vw, 1.125rem);
 }
+
 .amount-group{
     @apply ml-auto;
 }
+
 .amount-text{
-    @apply text-brown text-xl sm:text-3xl;
+    @apply text-brown;
+    font-size: clamp(1.25rem, 5vw, 1.875rem);
 }

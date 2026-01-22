@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brown: #966767;
+  --font-family-edu-sa-beginner: "Edu SA Beginner", cursive;
+  --font-family-shadows-into-light-two: "Shadows Into Light Two", cursive;
+  --font-family-combo: "Combo", system-ui;
+}
+
+@utility flex-center{
+  @apply flex justify-center items-center;
+}
+
+.calendar-container{
+    @apply relative flex-center w-full overflow-visible;
+}
+.calendar-btns{
+    @apply flex-center gap-1
+}
+.arrow-btn{
+    @apply p-1 text-brown hover:bg-white/50 rounded;
+}
+.date-btn{
+    @apply px-4 py-2 text-brown text-base sm:text-lg font-family-combo border border-gray-300 rounded hover:bg-white/50;
+}
+
+.full-calendar{
+    @apply absolute top-full mt-2 z-100 overflow-visible;
+}
+.calendar-content{
+    @apply text-xs border border-gray-300 rounded-sm shadow-lg p-3 overflow-visible;
+    background-image: url('images/backdrop.png');
+    background-size: cover;
+}
+
+calendar-date{
+    @apply text-xs;
+}
+
+calendar-date svg[slot="previous"],
+calendar-date svg[slot="next"] {
+    @apply w-5 h-5;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+calendar-date svg[slot="previous"]:hover,
+calendar-date svg[slot="next"]:hover {
+    @apply text-brown hover:bg-gray-50 rounded;
+    transform: scale(1.1);
+}
+
+calendar-date::part(button) {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+calendar-month {
+    @apply text-xs -m-1;
+}
+
+calendar-date::part(header) {
+    @apply text-xs -m-1;
+}

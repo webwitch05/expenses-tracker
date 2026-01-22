@@ -8,13 +8,17 @@ function App() {
   return (
     <ExpensesTracker>
       <BrowserRouter>
-        <img id="img-backdrop" src='images/backdrop.png'/>
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/ExpensesPage" element={<ExpensesPage />} />
-          </Routes>
-        </main>
+        <div id="content">
+          <div id="wireframe">
+            <img id="img-backdrop" src="images/backdrop2.png" />
+              <main>
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/ExpensesPage" element={<ExpensesPage />} />
+                </Routes>
+              </main>           
+          </div>
+        </div>
       </BrowserRouter>
     </ExpensesTracker>
   )

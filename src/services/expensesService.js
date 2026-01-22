@@ -1,4 +1,4 @@
-import { supabase } from './supabaseClient'
+import { supabase } from './supabaseClient';
 
 const fetchExpense = async (month) => {
     const startDate = `${month}-01`;
@@ -23,7 +23,7 @@ const addExpenses = async (expense) => {
     const { data: lastExpense, error: fetchError } = await supabase
         .from("expenses")
         .select("expenseid")
-        .eq("date", new Date().toISOString().split('T')[0]) // Format: YYYY-MM-DD
+        .eq("date", expense.date) // Format: YYYY-MM-DD
         .order("expenseid", { ascending: false })
         .limit(1)
         .single(); //returns an object, not an array
@@ -38,6 +38,7 @@ const addExpenses = async (expense) => {
         .insert([
             {
                 expenseid: (lastExpense?.expenseid ?? 0) + 1,
+                date: expense.date,
                 amount: expense.amount,                 
                 category: expense.category,              
                 description: expense.description ?? "",

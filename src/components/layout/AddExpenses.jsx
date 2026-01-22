@@ -1,4 +1,6 @@
+import { format } from 'date-fns';
 import { useState, useRef, useEffect } from "react";
+import  Calendar  from "../features/ExpensesCalendar";
 import { categories } from '../../../public/constants';
 import { addExpenses } from '../../services/expensesService';
 import { useExpensesContext } from "../../contexts/ExpensesContext";
@@ -6,7 +8,8 @@ import { useExpensesContext } from "../../contexts/ExpensesContext";
 const AddExpenses= ()=>{  
     const { setExpensesMonth, refetchExpenses } = useExpensesContext();
 
-    const [amount, setAmount]= useState("")
+    const [amount, setAmount]= useState("");
+    const [date, setDate]= useState(new Date());
     const [category, setCategory] = useState(null);
     const [description, setDescription]= useState("");
 
@@ -19,6 +22,7 @@ const AddExpenses= ()=>{
 
     const handleAddBtn = async() => {
         const expenses = {
+            date: format(date, 'yyyy-MM-dd'),
             amount,           // Shorthand when variable name matches property name
             category,         
             description: description || "",  // Can also use || instead of ??          
@@ -30,11 +34,18 @@ const AddExpenses= ()=>{
         setAmount("");
         setCategory(null);
         setDescription("");
+        setDate(new Date());
     };
 
     return(
         <div id="add-expenses">
             <div className="input-box">
+                <div>
+                    <Calendar 
+                        selectedDate={date}
+                        onChange={setDate}
+                    />
+                </div>                
                 <div className="input-group text-input">
                     <p>Amount:</p>
                     <input 
@@ -75,7 +86,7 @@ const AddExpenses= ()=>{
                     />
                 </div>                       
             </div>
-            <button onClick={handleAddBtn}>Add</button>
+            <button className="add-btn" onClick={handleAddBtn}>Add</button>
         </div>
     )
 }

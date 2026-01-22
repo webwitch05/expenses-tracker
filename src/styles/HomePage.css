@@ -9,36 +9,43 @@
 
 /* Monthly spending */
 #month-spending .amount{
-  @apply text-3xl sm:text-4xl md:text-5xl text-brown font-family-combo tracking-wider mt-1 sm:mt-3 mb-4 sm:mb-6
+  @apply text-3xl sm:text-4xl md:text-5xl text-brown font-family-combo tracking-wider;
+  margin-top: 2%;
+  margin-bottom: 4%;
 }
 
 #month-spending .total{
-  @apply text-xl sm:text-2xl text-brown font-family-combo tracking-wider mt-1 sm:mt-3 mb-4 sm:mb-6
+  @apply text-sm sm:text-base text-brown font-family-combo tracking-wider;
+  margin-top: 2%;
+  margin-bottom: 4%;
 }
 
 #month-spending .information{
-  @apply flex gap-1 items-center text-sm sm:text-base text-brown font-family-edu-sa-beginner tracking-wider mt-2 sm:mt-3
+  @apply flex gap-1 items-center text-sm text-brown font-family-edu-sa-beginner tracking-wider;
+  margin-top: 3%;
 }
 
 #month-spending .icon{
-  @apply h-[2em] sm:h-[2.5em]
+  @apply h-[2em] sm:h-[2.5em];
 }
 
 #percentage-bar{
-  @apply relative w-[70%] bg-[#D2C4BF] rounded-full h-4 sm:h-5 md:h-6 
+  @apply relative w-[95%] bg-[#D2C4BF] rounded-full;
+  height: clamp(1rem, 4vw, 1.5rem);
 }
 
 #percentage{
-  @apply relative rounded-full h-4 sm:h-5 md:h-6 overflow-hidden
+  @apply relative rounded-full overflow-hidden;
+  height: clamp(1rem, 4vw, 1.5rem);
 }
 
 /* Add expenses */
 #add-expenses{
-  @apply relative flex flex-col justify-center items-center w-full;
+  @apply relative flex flex-col justify-center items-center w-full overflow-y-auto overflow-x-hidden;
 }
 
 #add-expenses .input-box{
-  @apply flex flex-col gap-2 sm:gap-4 w-full
+  @apply flex flex-col gap-2 sm:gap-4 w-full;
 }
 
 #add-expenses .input-group.text-input{
@@ -54,11 +61,14 @@
 }
 
 #add-expenses input{
-  @apply w-full h-4 px-2 py-3 sm:py-4 rounded-lg bg-white/50 border border-white/30 text-[#D4A5A5] tracking-widest font-family-shadows-into-light-two text-sm sm:text-base;
+  @apply w-full px-2 rounded-lg bg-white/50 border border-white/30 text-sm sm:text-base text-[#D4A5A5] tracking-widest font-family-shadows-into-light-two;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  height: clamp(2rem, 8vw, 2.5rem);
 }
 
 #add-expenses input::placeholder{
-  @apply text-[#757575] tracking-wider font-family-shadows-into-light-two text-sm sm:text-base;
+  @apply text-sm sm:text-base text-[#757575] tracking-wider font-family-shadows-into-light-two;
 }
 
 .categories-wrapper {
@@ -67,14 +77,15 @@
 }  
 
 .categories-grid{
-  @apply flex gap-3 sm:gap-5 items-center;
+  @apply flex items-center;
+  gap: clamp(0.75rem, 3vw, 1.25rem);
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
   scroll-snap-type: x mandatory;
-  padding: 8px 4px;
+  padding: 2% 1%;
   flex-wrap: nowrap;
   -webkit-overflow-scrolling: touch;    
 }
@@ -88,7 +99,7 @@
   hover:scale-110 transition-transform;
   flex-shrink: 0;
   scroll-snap-align: center;
-  min-width: 70px;    
+  min-width: clamp(60px, 18vw, 70px);
 }
 
 .category-item.selected {
@@ -97,32 +108,60 @@
 }
 
 .category-item img{
-  @apply w-auto h-10 sm:h-12;
+  @apply w-auto;
+  height: clamp(2rem, 8vw, 3rem);
 }
 
 #add-expenses .category-item p{
-  @apply text-brown text-xs sm:text-sm text-center;
+  @apply text-brown text-center;
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 #add-expenses .category-item.selected p{
-  @apply text-white text-xs sm:text-sm text-center;
+  @apply text-white text-center;
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
-#add-expenses button{
-  @apply w-[60%] sm:w-[50%] md:w-[45%] sm:py-3 rounded-full text-brown font-family-combo text-center mt-4 sm:mt-5 cursor-pointer text-sm sm:text-base;
+.add-btn{
+  @apply rounded-full text-brown font-family-combo text-center cursor-pointer;
+  width: clamp(55%, 15vw, 60%);
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-top: 4%;
+  font-size: clamp(0.875rem, 3.5vw, 1rem);
   background-image: url('images/cherryblossom-bg2.png');
   background-size: cover;
   background-position: center;
 }
 
-#add-expenses button:hover {
-  transform: scale(1.1);
+.add-btn:hover {
+  transform: scale(1.05);
   box-shadow: 0 6px 20px rgb(0, 0, 0, 0.5);
 }
 
-/* Category Breakdown */
+#breakdown-btn{
+  @apply flex flex-col justify-center mx-auto;
+  width: 70%;
+}
+
+.view-all-btn{
+  @apply text-brown rounded-3xl w-fit mx-auto text-xs sm:text-sm;
+  padding: clamp(0.5rem, 2vw, 0.75rem);
+  margin-top: -4%;
+  background-color: rgba(243, 228, 223, 0.3);
+  backdrop-filter: blur(8px);
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.1),
+    0 2px 5px rgba(0, 0, 0, 0.05);      
+}
+
+{/*
 #category-breakdown{
-  @apply relative h-50 sm:h-80 mb-1;
+  @apply relative;
+  height: clamp(200px, 50vw, 320px);
+  margin-bottom: 2%;
 }
 
 .category-circle-dynamic {
@@ -146,44 +185,17 @@
 
 .circle-amount {
   @apply font-bold text-white font-family-combo;
-  font-size: clamp(1rem, 2vw, 1.75rem);
+  font-size: clamp(0.875rem, 3.5vw, 1.5rem);
 }
 
 .circle-name {
-  @apply text-white/90 font-family-edu-sa-beginner mt-1;
-  font-size: clamp(0.65rem, 1.5vw, 0.875rem);
+  @apply text-white/90 font-family-edu-sa-beginner;
+  margin-top: 2%;
+  font-size: clamp(0.625rem, 2.5vw, 0.875rem);
 }
 
 .circle-percentage {
   @apply text-white/70 font-family-combo;
-  font-size: clamp(0.625rem, 1.2vw, 0.75rem);
+  font-size: clamp(0.563rem, 2.2vw, 0.75rem);
 }
-
-#breakdown-btn{
-  @apply flex flex-col justify-center w-[70%] ml-auto -mt-2;
-}
-
-.view-all-btn{
-  @apply p-2 sm:p-3 text-brown rounded-3xl text-xs sm:text-sm w-fit mx-auto -mt-4;
-  background-color: rgba(243, 228, 223, 0.3);
-  backdrop-filter: blur(8px);
-  border-top: 2px solid rgba(255, 255, 255, 0.4);
-  border-left: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 5px 15px rgba(0, 0, 0, 0.1),
-    0 2px 5px rgba(0, 0, 0, 0.05);      
-}
-
-/* Desktop */
-@media (min-width: 640px) {
-  .categories-grid {
-    overflow-x: visible;
-    justify-content: center;
-    flex-wrap: wrap;
-    scroll-snap-type: none;
-  }
-  .category-circle-dynamic {
-    width: var(--size-desktop);
-    height: var(--size-desktop);
-  } 
-}
+*/}

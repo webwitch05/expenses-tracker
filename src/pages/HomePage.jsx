@@ -11,7 +11,7 @@ const HomePage= ()=>{
             <div className="page-container">
 
                 <div>
-                    <img id="rabbit-swing" src='images/rabbit-swing.png'/>
+                    {/*<img id="rabbit-swing" src='images/rabbit-swing.png'/>*/}
                     <div className="header">
                         <img className="header-icon" src='images/icon-chicken.png'/> 
                         Hello WebWitch
@@ -36,20 +36,21 @@ const HomePage= ()=>{
                         <AddExpenses/>
                     </div>
 
+                    {/*
                     <div className="title">
                         <div>Category Breakdown</div>
                         <img className="header-icon" src="images/icon-flower.png"/>
                     </div>
-
-                    <div id="breakdown-btn">
-                        <CategoryBreakdown/>
-                        <Link to="/ExpensesPage" className="view-all-btn">
-                            View all expenses ›
-                        </Link>
-                    </div>
+                    */}
                 </div>    
+                <div id="breakdown-btn">
+                    { /*<CategoryBreakdown/>*/ }
+                    <Link to="/ExpensesPage" className="view-all-btn">
+                        View all expenses ›
+                    </Link>
+                </div>                
             </div>
-            <img id="rabbit-snow" src='images/rabbit-snow.png'/>
+            {/*<img id="rabbit-snow" src='images/rabbit-snow.png'/>*/}
         </>
     )
 }
